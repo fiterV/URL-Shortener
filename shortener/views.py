@@ -5,12 +5,6 @@ from .forms import SubmitUrlForm
 
 import socket
 
-# Create your views here.
-# def index(request, code):
-#     obj = get_object_or_404(KirrURL, shortcode=code)
-#     return redirect(obj.url)
-#     return HttpResponse("Hey buddy " + obj.url)
-
 class HomeView(View):
     def get(self, request, *args, **kwargs):
         tform = SubmitUrlForm()
@@ -23,6 +17,7 @@ class HomeView(View):
         template="shortener/home.html"
         context = {
             "form": form,
+            #for proper redirect on a hosting
             'host': request.get_host(),
         }
         if form.is_valid():
@@ -34,11 +29,15 @@ class HomeView(View):
                 'created':created,
                 'host':request.get_host(),
             }
+            #Well I decided that there won't be "exists" page
+            #Let user think that he/she provided unique link
+            #that we haven't in our DB before
             # if created==True:
             #     template="shortener/success.html"
             # else:
             #     template="shortener/already-exists.html"
         else:
+            #Wrong link, error page
             context['failed']=True;
         print(context)
 

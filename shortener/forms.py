@@ -5,8 +5,6 @@ class SubmitUrlForm(forms.Form):
     url = forms.CharField(label='',
                           validators=[validate_url],
                           widget=forms.TextInput(attrs= {
-                              #"placeholder": "Long URL",
-                                                    #     "class" : "form-control",
                                                             "id" : "url",
                                                          }
 

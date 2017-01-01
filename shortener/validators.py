@@ -7,7 +7,7 @@ def validate_url(value):
     try:
         url_validator(value)
     except:
-        print("Error dude")
-        raise ValidationError("Invalid URL dude")
+        print("Error during URL validation in shortener")
+        raise ValidationError("Invalid URL given")
 
     return value
