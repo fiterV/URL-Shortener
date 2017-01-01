@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Kirr{% endblock title %}</title>
+    {% load staticfiles %}
+    <link rel="stylesheet" href="{% static 'shortener/css/bootstrap.min.css' %}" type="text/css">
+    <script src="{% static "shortener/jquery.min.js" %}"></script>
+    <link rel="icon" type="image" href="{% static 'shortener/logo.ico' %}">
+</head>
+
+<style>
+    body{
+        background: url("{% static 'shortener/back.jpg' %}");
+    }
+    h3{
+        color:white;
+    }
+    .container{
+        margin-top:0%;
+    }
+    img.icon {
+        height: 100px;
+        width: 100px;
+    }
+    a.shortened {
+        color: red;
+    }
+
+</style>
+
+<body>
+<img src="{% static 'shortener/logo.png' %}" class="img-responsive icon">
+
+<div class="container">
+
+          <div class="row">
+
+
+                 {% block content %}
+
+                 {% endblock content%}
+          </div>
+</div>
+
+
+</div>
+</body>
+</html>

@@ -1,0 +1,13 @@
+{% extends 'shortener/base.html' %}
+
+{% block title %}
+Already exists |
+{% endblock %}
+
+{% block content %}
+
+        <h3>Exists</h3>
+        <p><a href="{{ object.url }}">{{ object.url }}</a></p>
+        <p><a href="{{ host }}/{{ object.shortcode }}" class="shortened">{{ object.shortcode }}</a></p>
+        <a class="btn btn-default" href="../">+ New </a>
+{% endblock %}
